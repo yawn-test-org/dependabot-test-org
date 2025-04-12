@@ -4,13 +4,14 @@ on:
   pull_request:
     types: [opened, labeled, reopened, synchronize]
 
-jobs:  
+jobs:
   call-reusable-workflow:
-    uses: yawn-test-org/org-actions/.github/workflows/dependencies-pr.yml@main
+    uses: yawn-test-org/org-actions/.github/workflows/slack-bot-pr.yml@main
+    if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' || contains(github.event.pull_request.labels.*.name, 'dependencies') }}
     with:
       repo_name: ${{ github.repository }}
       pr_title: ${{ github.event.pull_request.title }}
-      pr_url: ${{ github.event.pull_request.html_url }}
+      pr_url: ${{ github.event.pull_request.html_url }
     secrets:
       slack_channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
       slack_bot_token: ${{ secrets.SLACK_BOT_TOKEN }}
