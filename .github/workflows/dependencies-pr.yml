@@ -2,7 +2,7 @@ name: Dependencies PR
 
 on:
   pull_request:
-    types: [opened, labeled, reopened]
+    types: [opened, labeled, reopened, synchronize]
 
 jobs:  
   call-reusable-workflow:
