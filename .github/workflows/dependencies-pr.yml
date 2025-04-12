@@ -6,4 +6,4 @@ on:
 
 jobs:
   call-reusable-workflow:
-    uses: yawn-test-org/org-actions/.github/workflows/reusable-test.yml@main
+    uses: yawn-test-org/org-actions/.github/workflows/dependencies-pr.yml@main
