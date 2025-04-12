@@ -1,0 +1,15 @@
+name: Dependencies PR
+
+on:
+  pull_request:
+    types: [opened, labeled, reopened]
+
+jobs:
+  dependencies-pr:
+    if: ${{ ( github.event.pull_request.state == 'open' && contains(github.event.pull_request.labels.*.name, 'dependencies') ) || ( github.event.pull_request.user.login == 'dependabot[bot]' ) }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output repository name and PR URL
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Pull Request URL: ${{ github.event.pull_request.html_url }}"
