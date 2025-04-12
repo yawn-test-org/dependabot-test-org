@@ -7,3 +7,5 @@ on:
 jobs:
   call-reusable-workflow:
     uses: yawn-test-org/org-actions/.github/workflows/dependencies-pr.yml@main
+    with:
+      pr_url: ${{ github.event.pull_request.html_url }}
