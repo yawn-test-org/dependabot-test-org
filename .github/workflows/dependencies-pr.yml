@@ -9,6 +9,7 @@ jobs:
     uses: yawn-test-org/org-actions/.github/workflows/dependencies-pr.yml@main
     with:
       repo_name: ${{ github.repository }}
+      pr_title: ${{ github.event.pull_request.title }}
       pr_url: ${{ github.event.pull_request.html_url }}
     secrets:
       slack_channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
