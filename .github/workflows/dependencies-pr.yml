@@ -16,5 +16,5 @@ jobs:
     with:
       repo_name: ${{ github.repository }}
       pr_url: ${{ github.event.pull_request.html_url }}
-    # secrets:
-    #   slack_bot_token: ${{ secrets.SLACK_BOT_TOKEN }}
+    secrets:
+      slack_bot_token: ${{ secrets.SLACK_BOT_TOKEN }}
