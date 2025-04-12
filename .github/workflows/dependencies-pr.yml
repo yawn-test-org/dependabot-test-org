@@ -6,8 +6,8 @@ on:
 
 jobs:
   call-reusable-workflow:
+    if: github.actor == 'dependabot[bot]' && github.event.pull_request.user.login == 'dependabot[bot]'
     uses: yawn-test-org/org-actions/.github/workflows/slack-bot-pr.yml@main
-    if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' || contains(github.event.pull_request.labels.*.name, 'dependencies') }}
     with:
       repo_name: ${{ github.repository }}
       pr_title: ${{ github.event.pull_request.title }}
